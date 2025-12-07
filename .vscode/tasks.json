@@ -1,0 +1,23 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Build CUDA",
+      "type": "shell",
+      "command": "nvcc",
+      "args": [
+        "-o",
+        "${workspaceFolder}/vectorAdd",  // Output executable
+        "${workspaceFolder}/vectorAdd.cu",       // Input source file(s)
+        // Or for Linux: "-I", "/usr/local/cuda/include",
+        //"-L", "C:/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v12.x/lib/x64", // Library path (Windows)
+        "-lcudart"                       // Link CUDA runtime library
+      ],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "problemMatcher": ["$msCompile"]  // Use "$gcc" for Linux/Mac
+    }
+  ]
+}
